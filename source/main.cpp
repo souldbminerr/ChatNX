@@ -456,11 +456,7 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    appletSetCpuBoostMode(ApmCpuBoostMode_FastLoad);
-
     run_chat(&pad, model_path);
-
-    appletSetCpuBoostMode(ApmCpuBoostMode_Normal);
 
     wait_for_exit(&pad);
 
