@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+# Switch / devkitPro build artifacts
+build/
+*.nro
+*.nso
+*.nacp
+*.elf
+*.map
+
+# llama.cpp cross-compile output + staged sysroot (rebuilt by scripts/build-llama.sh)
+vendor/llama.cpp/build-switch/
+vendor/sysroot/
