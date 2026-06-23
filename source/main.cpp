@@ -257,7 +257,10 @@ namespace {
             batch = llama_batch_get_one(&next, 1);
 
             padUpdate(pad);
-            if (padGetButtonsDown(pad) & HidNpadButton_Plus) break;
+            if (padGetButtonsDown(pad) & HidNpadButton_B) {
+                g_view.append("\x1b[2;37m [cancelled]\x1b[0m");
+                break;
+            }
         }
 
         double secs = armTicksToNs(armGetSystemTick() - t_start) / 1.0e9;
@@ -353,9 +356,10 @@ namespace {
         int prev_len = 0;
 
         messages.push_back({ "system",
-            strdup("You are a helpful assistant. Answer the user's question directly in plain prose. "
+            strdup("You are a helpful AI assistant. Answer the user's question directly in plain prose. "
                    "Do not use markdown, code blocks, backticks, or bullet lists. "
-                   "Do not repeat the question back. Give a real answer in a few complete sentences.") });
+                   "Do not repeat the question back. Give a real answer in a few complete sentences."
+                   "If the data you are being questioned on is not in your training data or you are unsure about it, tell that to the user") });
 
 
         g_view.init();
