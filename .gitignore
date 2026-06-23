@@ -39,6 +39,5 @@ build/
 *.elf
 *.map
 
-# llama.cpp cross-compile output + staged sysroot (rebuilt by scripts/build-llama.sh)
-vendor/llama.cpp/build-switch/
+# rebuilt by build-llama.sh
 vendor/sysroot/
